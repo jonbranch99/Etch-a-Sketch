@@ -1,0 +1,9 @@
+.gridRow {
+  display: flex;
+}
+.cell {
+  border: 1px solid gray;
+  min-width: 20px;
+  min-height: 20px;
+  flex-grow: 1;
+}

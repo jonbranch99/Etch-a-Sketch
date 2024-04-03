@@ -53,12 +53,3 @@ function changeColor(event) {
   const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
   event.target.style.backgroundColor = randomColor;
 }
-
-function defaultGrid() {
-  makeRows(16);
-  makeColumns(16);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  defaultGrid();
-});

@@ -12,9 +12,15 @@ function makeColumns(cellNum) {
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < cellNum; j++) {
       let newCell = document.createElement("div");
+      newCell.className = "cell";
+      newCell.addEventListener("mouseover", changeColor);
       rows[i].appendChild(newCell).className = "cell";
     }
   }
+}
+
+function changeColor(event) {
+  event.target.style.backgroundColor = "black";
 }
 
 function defaultGrid() {

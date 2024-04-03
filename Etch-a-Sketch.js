@@ -1,21 +1,20 @@
 const container = document.getElementById("container");
 
-function makeRows(rowNum) {
-  for (let i = 0; i < rowNum; i++) {
-    let row = document.createElement("div");
-    container.appendChild(row).className = "gridRow";
-  }
-}
+function makeGrid(rows, cols) {
+  const containerSize = 960;
+  let cellSize = (containerSize / rows) * cols;
 
-function makeColumns(cellNum) {
-  let rows = document.getElementsByClassName("gridRow");
-  for (let i = 0; i < rows.length; i++) {
-    for (let j = 0; j < cellNum; j++) {
-      let newCell = document.createElement("div");
-      newCell.className = "cell";
-      newCell.addEventListener("mouseover", changeColor);
-      rows[i].appendChild(newCell).className = "cell";
-    }
+  container.style.width = `${containerSize}px`;
+  container.style.height = `${containerSize}px`;
+  container.style.display = "grid";
+  container.style.gridTemplateRows = `repeat(${rows}, ${cellSize}px)`;
+  container.style.gridTemplateColumns = `repeat(${cols}), ${cellSize}px`;
+
+  for (let i = 0; i < rows * cols; i++) {
+    let cell = document.createElement("div");
+    cell.className = "cell";
+    cell.addEventListener("mouseover", changeColor);
+    container.appendChild(cell);
   }
 }
 
